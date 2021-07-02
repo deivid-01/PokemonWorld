@@ -1,1 +1,14 @@
-.
+.card:hover {
+    box-shadow: 10px 5px 10px 5px rgba(255, 255, 255,0.8) !important;
+    transition: all 0.2s linear;
+}
+.card-img-top{
+    transition: all 0.2s ease-in-out;
+}
+.overflow{
+    overflow:hidden;
+}
+
+.card-img-top:hover{
+    transform: scale(1.8);
+}
