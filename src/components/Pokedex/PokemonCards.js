@@ -6,7 +6,7 @@ import PokemonCard from './PokemonCard';
 function PokemonCards ({pokemons,openModal,setSelectedPokemon})
 {
 
-    return (<div>
+    return (<div className="container">
         <div className="row">
         {
             pokemons.map((pokemon)=>(
