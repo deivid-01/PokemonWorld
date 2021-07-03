@@ -3,7 +3,7 @@ import {TextField} from '@material-ui/core'
 import Modal from '../Modal'
 import PokemonCards from './PokemonCards'
 import Pagination from '../Pagination'
-import {getPokemons,searchPokemon } from '../../services/api'
+import {getPokemonData,getPokemons,searchPokemon } from '../../services/api'
 import Title from '../Title'
 import SearchBar from '../SearchBar'
 import img_title from '../../assets/pokedex.png'
@@ -15,8 +15,29 @@ function Pokedex(){
     
     const [pokemons,setPokemons] = useState([])
     const [selected_pokemon,setSelectedPokemon]= useState(null)
+    const [found_pokemon,setFoundPokemon]= useState(null)
     const [actualPage,setActualPage]= useState(0)
     const [totalPages,setTotalPages]= useState()
+    
+    const [notFound,setNotFound] = useState(false);
+
+    const onSearch = async(pokemon_name)=>{
+
+        if(!pokemon_name)
+            return fetchPokemon();
+
+        const res = await searchPokemon(pokemon_name)
+        if(res)
+        {
+            setPokemons([res])
+            setNotFound(false)
+        }
+            
+
+        else
+            setNotFound(true)
+       
+    }
 
     const onNextPage = ()=>{
         setActualPage(actualPage+1)
@@ -35,7 +56,18 @@ function Pokedex(){
         {
             //Get pokemons data
             const data = await getPokemons(NUM_ITEMS, NUM_ITEMS*actualPage);
-            setPokemons(data)
+            
+            //Get specific data of each pokemon
+            const promises = data.results.map( async (pok)=>{
+                    return await getPokemonData(pok.url)
+                })
+        //Await until get all promises
+            const results = await Promise.all(promises)
+            //Set Data
+
+            setTotalPages( Math.ceil(data.count/NUM_ITEMS))
+            setPokemons(results)
+            setNotFound(false);
         }
         catch(err)
         {
@@ -55,20 +87,27 @@ function Pokedex(){
             <br></br>
             <Title img={img_title}/>
              <br></br>
-            <SearchBar/>
+            <SearchBar
+                onSearch={onSearch}
+            />
             <br></br>
             <Pagination
                 page ={actualPage}
-                totalPages={100}
+                totalPages={totalPages}
                 onLeftClick={onPreviousPage}
                 onRightClick={onNextPage}
             />
             <br></br>
-            <PokemonCards
+            {(!notFound)?<PokemonCards
                 pokemons={pokemons}
                 openModal={handleShowModal}
                 setSelectedPokemon={onSelectPokemonHandler}
                 />
+                :
+                <p>Pokemon Not Found</p>
+            
+        }
+            
 
             {/*Modal with pokemon info*/ }
             {
