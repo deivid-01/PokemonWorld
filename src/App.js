@@ -1,4 +1,8 @@
 import Home from './components/Home'
+import Generations from './components/Generations'
+import Locations from './components/Locations'
+import Pokedex from './components/Pokedex'
+import PokemonInfo from './components/PokemonInfo'
 import {BrowserRouter,Switch,Route,Redirect} from 'react-router-dom';
 import './App.css'
 
@@ -10,7 +14,30 @@ function App() {
         <Route path="/home" render={ (props) => 
               <div className="App">
                 <Home { ...props } />  
-              </div> }/>
+              </div> }
+        />
+        <Route path="/generations" render={ (props) => 
+                <Generations { ...props } />  
+              }
+      
+        />
+        <Route path="/pokedex" render={ (props) => 
+                <div className="App">
+                <Pokedex { ...props } /> 
+                </div> 
+              }
+      
+        />
+                <Route path="/locations" render={ (props) => 
+                <Locations { ...props } />  
+              }
+      
+        />
+                        <Route path="/pokemoninfo" render={ (props) => 
+                <PokemonInfo { ...props } />  
+              }
+      
+        />
         {/* Redirect unhandled routes */}
         <Route>
           <Redirect to="/home" />

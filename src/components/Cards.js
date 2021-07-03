@@ -12,6 +12,7 @@ function Cards({data}) {
                     <Card title={card.title}
                           image={card.image}
                           description={card.description}
+                          url={card.url}
                     />
                     </div>
                 ))
