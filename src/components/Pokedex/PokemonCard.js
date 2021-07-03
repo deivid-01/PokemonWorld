@@ -6,12 +6,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import {useHistory} from 'react-router-dom'
-import Modal from './Modal'
-import PokemonInfo from './PokemonInfo';
-import imageTest from '../assets/pikachu.jpg'
+
+
 
 const useStyles = makeStyles((theme)=>({
   root: {
@@ -30,53 +27,54 @@ const useStyles = makeStyles((theme)=>({
 }));
   
 
-function PokemonCard({id,name,types,height,weight,openModal,closeModal}) {
-    
-  const [show, setShow] = useState(true);
+function PokemonCard({pokemon,openModal,setSelectedPokemon}) {
+ 
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-    const history =useHistory();
+ 
     const classes = useStyles();
 
     const setTypeMessage = ()=>{
       
-      if (types.length >0 )
+      var typesNames=pokemon.types.map((item)=>{
+        return item.type.name
+      })
+ 
+      if (typesNames.length>0 )
       {
-        if (types.length==1)
-          return types[0]
-        return types[0]+" | "+types[1]
+        if (typesNames.length==1)
+          return typesNames[0]
+        return typesNames[0]+" | "+typesNames[1]
       }
       return "No Type"
     }
 
-    const onClickHandler=()=>
-    {
-      setShow(true)
+    const onClickHandler = ()=>{
+      openModal();
+      setSelectedPokemon(pokemon);
     }
 
     return ( 
       <div>
        <Card className={classes.root}>
-      <CardActionArea onClick={openModal}>
+      <CardActionArea onClick={onClickHandler}>
       <div className={classes.details}>
         <CardHeader
-          title={name}
-          subheader={"#"+id}
+          title={pokemon.name}
+          subheader={"#"+pokemon.id}
         />
         <CardContent className={classes.content}>
           <Typography component="h6" variant="h6">
             {setTypeMessage()}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
-            {"Width:"+weight+" Height:"+height}
+            {"Width:"+pokemon.weight+" Height:"+pokemon.height}
           </Typography>
         </CardContent>
       </div>
       </CardActionArea>
       <CardMedia
         className={classes.media}
-        image={imageTest}
+        image={pokemon.sprites.front_default}
         title="Live from space album cover"
       />
     </Card>

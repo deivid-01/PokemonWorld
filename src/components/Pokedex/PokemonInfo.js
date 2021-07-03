@@ -24,35 +24,24 @@ import {
     Stat,
     StatLabel,
     StatBar,
-  } from './styles';
-import imageTest from '../assets/pikachu.jpg'
+  } from '../styles';
+import imageTest from '../../assets/pikachu.jpg'
 
 const pad = (num, size) => {
     const s = `000${num}`;
     return s.substr(s.length - size);
   };
 
-function PokemonInfo(){
-    var   totalStats = 0;
-    const [pokemon,setPokemon]=useState({
-        id:21,
-        name:'Pikachu',
-        img:{imageTest},
-        color:'dark',
-        types:'Fire,Grass',
-        habitat:'Desert',
-        weight:'1.34',
-        height:'135',
-        stats:[]
 
-
-    })
+  function PokemonInfo({pokemon}){
+   
+    var totalStats=0
     return (
         <Card
                 key={`pokemon-${pokemon.name}`}
                 id={`pokemon-${pokemon.name}`}
               >
-                <img src={imageTest} alt="daa"
+                <img src={pokemon.sprites.front_default} alt="daa"
                         style={{
                             'width': '350px',
                             'margin': '0 auto',
@@ -61,11 +50,11 @@ function PokemonInfo(){
                         }}
                      ></img>
        
-                <SubCard className={`bg-${pokemon.color}`}>
+                <SubCard className={`bg-dark`}>
                   <Id>#{pad(pokemon.id, 3)}</Id>
                   <BoxTypes>
-                    {pokemon.types.split(',').map(t => (
-                      <Info key={t}>{t}</Info>
+                    {pokemon.types.map(item => (
+                      <Info key={item.type.name}>{item.type.name}</Info>
                     ))}
                   </BoxTypes>
                   <Name>

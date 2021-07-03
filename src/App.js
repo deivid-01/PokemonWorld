@@ -1,8 +1,8 @@
-import Home from './components/Home'
+import Home from './components/Home/Home'
 import Generations from './components/Generations'
 import Locations from './components/Locations'
-import Pokedex from './components/Pokedex'
-import PokemonInfo from './components/PokemonInfo'
+import Pokedex from './components/Pokedex/Pokedex'
+import PokemonInfo from './components/Pokedex/PokemonInfo'
 import {BrowserRouter,Switch,Route,Redirect} from 'react-router-dom';
 import './App.css'
 

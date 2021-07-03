@@ -2,10 +2,10 @@ import React, {useState,useEffect} from 'react';
 import Cards from './Cards'
 import {useHistory} from 'react-router-dom'
 
-import img_title from '../assets/pokemonworld.png'
-import bg_generations from '../assets/bg_generations.jpg'
-import bg_pokemon from '../assets/bg_pokemons2.jpg'
-import bg_locations from '../assets/bg_locations.png'
+import img_title from '../../assets/pokemonworld.png'
+import bg_generations from '../../assets/bg_generations.jpg'
+import bg_pokemon from '../../assets/bg_pokemons2.jpg'
+import bg_locations from '../../assets/bg_locations.png'
 
 function Home ()
 {
