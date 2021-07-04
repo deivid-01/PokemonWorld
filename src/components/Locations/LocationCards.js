@@ -10,7 +10,7 @@ function LocationCards ({locations,openModal,setSelectedLocation})
         <Grid container  alignItems="stretch">
         {
             locations.map((location)=>(
-                <Grid  item style={{display: 'flex',width:200}}>
+                <Grid  item style={{display: 'flex',width:600}}>
                     <LocationCard
                         location={location}
                         openModal={openModal}

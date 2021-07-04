@@ -7,7 +7,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-
+import Avatar from '@material-ui/core/Avatar';
+import GradeIcon from '@material-ui/icons/Grade';
+import Chip from '@material-ui/core/Chip';
 
 
 const useStyles = makeStyles((theme)=>({
@@ -54,33 +56,40 @@ function PokemonCard({pokemon,openModal,setSelectedPokemon}) {
     }
 
     return ( 
-      <div>
-       <Card className={classes.root}>
-      <CardActionArea onClick={onClickHandler}>
-      <div className={classes.details}>
-        <CardHeader
-          title={pokemon.name}
-          subheader={"#"+pokemon.id}
-        />
-        <CardContent className={classes.content}>
-          <Typography component="h6" variant="h6">
-            {setTypeMessage()}
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
-            {"Width:"+pokemon.weight+" Height:"+pokemon.height}
-          </Typography>
-        </CardContent>
-      </div>
-      </CardActionArea>
-      <CardMedia
-        className={classes.media}
-        image={pokemon.sprites.front_default}
-        title="Live from space album cover"
-      />
-    </Card>
+      <div  style={{cursor: 'pointer'}} className="pokemon-card " onClick={onClickHandler}>
+        <div className="pokemon-img-container">
+          <img src ={pokemon.sprites.front_default}
+              alt = {pokemon.name}
+              className="pokemon-img"/>
 
+
+        </div>
+
+        <div className="card-body">
+          <div className="card-top">
+            <h3>{pokemon.name}</h3>
+            <div>
+              # {pokemon.id}
+            </div>
+          </div>
+          <div className="pokemon-type">
+            {
+              pokemon.types.map((item,idx)=>{
+
+                return         <Chip key={idx}
+                label={item.type.name[0].toUpperCase()+item.type.name.substring(1,item.type.name.length)}
+                color={"secondary"}
+                icon = {<GradeIcon/>}
+            />
+                })
+            }
+          </div>
+        </div>
+
+
+      </div>
  
- </div>)
+)
 }
 
 export default PokemonCard;

@@ -87,13 +87,7 @@ function Pokedex(){
             <Title img={img_title}/>
              <br></br>
             <SearchBar  module={MODULE} onSearch={onSearch} />
-            <br></br>
-            <Pagination
-                page ={actualPage}
-                totalPages={totalPages}
-                onLeftClick={onPreviousPage}
-                onRightClick={onNextPage}
-            />
+          
             <br></br>
             {(!notFound)?
                 <PokemonCards
@@ -104,6 +98,13 @@ function Pokedex(){
                 :
                 <p>Pokemon Not Found</p>   
             }
+              <br></br>
+            <Pagination
+                page ={actualPage}
+                totalPages={totalPages}
+                onLeftClick={onPreviousPage}
+                onRightClick={onNextPage}
+            />
             {/*Modal with pokemon info*/ }
             {
                 show && selected_pokemon &&  

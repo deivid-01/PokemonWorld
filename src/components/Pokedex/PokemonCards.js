@@ -2,27 +2,29 @@ import { types } from '@babel/core';
 import React from 'react'
 
 import PokemonCard from './PokemonCard';
+import {Grid} from '@material-ui/core'
 
 function PokemonCards ({pokemons,openModal,setSelectedPokemon})
 {
 
-    return (<div className="container">
-        <div className="row">
+    return (
+                <div className="container pokedex-grid"  >
+
         {
             pokemons.map((pokemon)=>(
-                <div className="col-md-4" key={pokemon.id}>  
+               
                     <PokemonCard
                         pokemon={pokemon}
                         openModal={openModal}
                         setSelectedPokemon={setSelectedPokemon}
                     />
                     
-                    </div>
+                   
                 
             ))
         }
         </div>
-    </div>)
+   )
 }
 
 export default PokemonCards;
