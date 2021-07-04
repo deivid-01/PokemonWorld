@@ -1,6 +1,6 @@
 import Home from './components/Home/Home'
 import Generations from './components/Generations'
-import Locations from './components/Locations'
+import Locations from './components/Locations/Locations'
 import Pokedex from './components/Pokedex/Pokedex'
 import PokemonInfo from './components/Pokedex/PokemonInfo'
 import {BrowserRouter,Switch,Route,Redirect} from 'react-router-dom';
@@ -29,7 +29,9 @@ function App() {
       
         />
                 <Route path="/locations" render={ (props) => 
+                <div className="App">
                 <Locations { ...props } />  
+                </div>
               }
       
         />

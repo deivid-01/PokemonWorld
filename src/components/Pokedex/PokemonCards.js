@@ -1,5 +1,5 @@
 import { types } from '@babel/core';
-import React, {useState,useEffect} from 'react'
+import React from 'react'
 
 import PokemonCard from './PokemonCard';
 
@@ -16,6 +16,7 @@ function PokemonCards ({pokemons,openModal,setSelectedPokemon})
                         openModal={openModal}
                         setSelectedPokemon={setSelectedPokemon}
                     />
+                    
                     </div>
                 
             ))

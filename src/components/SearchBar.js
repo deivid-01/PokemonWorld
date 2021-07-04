@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {TextField,IconButton} from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search';
-function SearchBar({onSearch}){
+function SearchBar({module,onSearch}){
     const [search,setSearch] = useState('');
 
     const onChangeInput = (e) =>{
@@ -29,7 +29,7 @@ function SearchBar({onSearch}){
         <div className="text-center  container c-searchbar ">
             <div className="col-10 ">
                 <form noValidate autoComplete="off">
-                    <TextField id="filled-basic" fullWidth={true} label="Search Pokemon by name" variant="filled" 
+                    <TextField id="filled-basic" fullWidth={true} label={`Search ${module} by name`} variant="filled" 
                        onKeyPress={onPressEnter} onChange={onChangeInput}/>
                 </form>
             </div>
