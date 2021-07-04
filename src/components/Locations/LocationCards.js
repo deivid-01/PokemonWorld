@@ -6,22 +6,22 @@ import {Grid} from '@material-ui/core'
 function LocationCards ({locations,openModal,setSelectedLocation})
 {
 
-    return (<div className="container">
-        <Grid container  alignItems="stretch">
-        {
+    return (
+        <div className="container pokedex-grid"  >
+            {
             locations.map((location)=>(
-                <Grid  item style={{display: 'flex',width:600}}>
+                
                     <LocationCard
                         location={location}
                         openModal={openModal}
                         setSelectedLocation={setSelectedLocation}
                     />
                     
-                    </Grid>
+                
                 
             ))
         }
-        </Grid>
+       
     </div>)
 }
 

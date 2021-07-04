@@ -8,6 +8,7 @@ import './App.css'
 
 function App() {
   return (
+    
     <BrowserRouter>
       <Switch>
         <Redirect exact path="/" to="/home" />

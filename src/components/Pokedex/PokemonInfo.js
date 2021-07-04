@@ -25,7 +25,6 @@ import {
     StatLabel,
     StatBar,
   } from '../styles';
-import imageTest from '../../assets/pikachu.jpg'
 
 const pad = (num, size) => {
     const s = `000${num}`;

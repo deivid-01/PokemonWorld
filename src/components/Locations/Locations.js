@@ -91,13 +91,7 @@ function Locations ()  {
              <br></br>
              <SearchBar  module={MODULE} onSearch={onSearch} />
 
-            <br></br>
-            <Pagination
-                page ={actualPage}
-                totalPages={totalPages}
-                onLeftClick={onPreviousPage}
-                onRightClick={onNextPage}
-            />
+          
               <br></br>
             {(!notFound)?
             <div >
@@ -110,6 +104,13 @@ function Locations ()  {
                 :
                 <p>Pokemon Not Found</p>   
             }
+              <br></br>
+            <Pagination
+                page ={actualPage}
+                totalPages={totalPages}
+                onLeftClick={onPreviousPage}
+                onRightClick={onNextPage}
+            />
             {
                 showModal && selected_location &&  
                     <Modal 
