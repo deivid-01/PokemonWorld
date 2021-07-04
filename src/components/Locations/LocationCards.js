@@ -2,26 +2,26 @@ import { types } from '@babel/core';
 import React from 'react'
 
 import LocationCard from './LocationCard';
-
+import {Grid} from '@material-ui/core'
 function LocationCards ({locations,openModal,setSelectedLocation})
 {
 
     return (<div className="container">
-        <div className="row">
+        <Grid container  alignItems="stretch">
         {
             locations.map((location)=>(
-                <div className="col-md-4" key={location.id}>  
+                <Grid  item style={{display: 'flex',width:200}}>
                     <LocationCard
                         location={location}
                         openModal={openModal}
                         setSelectedLocation={setSelectedLocation}
                     />
                     
-                    </div>
+                    </Grid>
                 
             ))
         }
-        </div>
+        </Grid>
     </div>)
 }
 

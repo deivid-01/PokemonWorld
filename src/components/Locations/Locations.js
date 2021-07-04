@@ -85,7 +85,7 @@ function Locations ()  {
 
 
 
-    return (<div>
+    return (<div >
            <br></br>
             <Title img={img_title}/>
              <br></br>
@@ -100,11 +100,13 @@ function Locations ()  {
             />
               <br></br>
             {(!notFound)?
+            <div >
                 <LocationCards
                     locations={locations}
                     openModal={handleShowModal}
                     setSelectedLocation={onSelectLocationHandler}
                     />
+                    </div>
                 :
                 <p>Pokemon Not Found</p>   
             }

@@ -12,7 +12,7 @@ function Card ({title,description,image,url})
     }
 
     return (
-        <div className='card text-center bg-red animate__animated animate__fadeInUp '>
+        <div className='card text-center bg-red animate__animated animate__fadeInUp c-card '>
             
             <div className="overflow">
             <img src={image} alt="" className="card-img-top"/>

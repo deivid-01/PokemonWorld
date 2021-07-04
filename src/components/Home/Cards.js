@@ -1,23 +1,29 @@
 import React from "react";
 import Card from "./Card"
+import {Grid} from '@material-ui/core'
 // className="container d-flex justify-content-center align-items-center"
 function Cards({data}) {
    
     return (
         <div className="container d-flex justify-content-center align-items-center">
-            <div className="row">
+            <Grid container direction="row"
+                 justify="center"
+                alignItems="stretch"
+                spacing = {3}
+
+>
             {
             data.map((card)=> (
-                    <div className='col-md-4' key={card.id}>
+                <Grid  item style={{display: 'flex',width:300}} key={card.id}>
                     <Card title={card.title}
                           image={card.image}
                           description={card.description}
                           url={card.url}
                     />
-                    </div>
+                  </Grid>
                 ))
             }
-            </div>
+            </Grid>
         </div>
     )
 }
