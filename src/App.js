@@ -2,8 +2,8 @@ import Home from './components/Home/Home'
 import Generations from './components/Generations/Generations'
 import Locations from './components/Locations/Locations'
 import Pokedex from './components/Pokedex/Pokedex'
-import PokemonInfo from './components/Pokedex/PokemonInfo'
-import NavBar from './components/NavBar'
+import Footer from './components/Footer/Footer'
+import NavBar from './components/NavBar/NavBar'
 import {BrowserRouter,Switch,Route,Redirect} from 'react-router-dom';
 import './App.css'
 
@@ -17,14 +17,17 @@ function App() {
         <Route path="/home" render={ (props) => 
               <div>
               <NavBar></NavBar>
-                <Home { ...props } /> 
+                <Home { ...props } />
+                <br></br>
+                <Footer/> 
                 </div> 
               }
         />
         <Route path="/generations" render={ (props) => 
                 <div>
-                <NavBar></NavBar>
+              <NavBar></NavBar>
                 <Generations { ...props } />
+                <Footer/> 
                 </div>  
               }
       
@@ -33,6 +36,7 @@ function App() {
               <div>
               <NavBar></NavBar>
                 <Pokedex { ...props } /> 
+                <Footer/> 
                 </div>
               }
       
@@ -40,7 +44,8 @@ function App() {
                 <Route path="/locations" render={ (props) => 
                <div>
                <NavBar></NavBar>
-                <Locations { ...props } />  
+                <Locations { ...props } /> 
+                <Footer/>  
                 </div>
               }
       

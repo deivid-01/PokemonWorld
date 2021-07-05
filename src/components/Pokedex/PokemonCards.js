@@ -14,6 +14,7 @@ function PokemonCards ({pokemons,openModal,setSelectedPokemon})
             pokemons.map((pokemon)=>(
                
                     <PokemonCard
+                        key={pokemon.id}
                         pokemon={pokemon}
                         openModal={openModal}
                         setSelectedPokemon={setSelectedPokemon}

@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import Modal from '../Modal/Modal'
 import LocationCards from './Location.cards'
-import Pagination from '../Pagination'
+import Pagination from '../Pagination/Pagination'
 import {getItemByURL,getItems,searchItem } from '../../services/api.services'
 import Title from '../Title'
 import SearchBar from '../SearchBar'
-import img_title from '../../assets/locations.png'
+import img_title from '../../assets/title_locations.png'
 
 function Locations ()  {
     

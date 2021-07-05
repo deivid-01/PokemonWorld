@@ -3,7 +3,7 @@ import {Card, CardContent,CardHeader, Chip,Typography , Divider } from '@materia
 import {splitAndUpper,firstToUpper} from '../../utils/stringtools'
 import PlaceIcon from '@material-ui/icons/Place';
 
-import ScrollableList from '../ScrollableList';
+import ScrollableList from '../ScrollableList/ScrollableList';
 
 
 function GenerationInfo({generation}) {

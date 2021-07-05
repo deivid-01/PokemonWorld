@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Modal from '../Modal/Modal'
 import PokemonCards from './PokemonCards'
-import Pagination from '../Pagination'
+import Pagination from '../Pagination/Pagination'
 import {getItemByURL,getItems,searchItem } from '../../services/api.services'
 import Title from '../Title'
 import SearchBar from '../SearchBar'
@@ -65,7 +65,7 @@ function Pokedex(){
             const results = await Promise.all(promises)
             //Set Data
             
-            console.log(results)
+      
             setTotalPages( Math.ceil(data.count/NUM_ITEMS))
             setPokemons(results)
             setNotFound(false);

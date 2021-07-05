@@ -35,8 +35,8 @@ function Home ()
     
     return (<div>
         <br></br>
-        <div className="text-center text-light" >
-        <img src={img_title} alt=""/>
+        <div className="container center-item  " >
+        <img  src={img_title} className="title-flex" alt=""/>
         </div>
         <br></br>
         

@@ -1,0 +1,10 @@
+.barrita2{
+    flex-grow: 1px;
+    background:rgba(0,0,0,0.5);
+}
+.bar-logo{
+    max-width: 200pt;
+    margin-right: 10pt;
+    
+
+}

@@ -15,13 +15,7 @@ body
   text-align: right;
 }
 
-.c-pagination{
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content: center;
-  
-}
+
 
 .c-searchbar{
   display:flex;
@@ -38,7 +32,13 @@ body
   flex-direction: 'column';
 
 }
-
+.title-flex{
+  transform: scale3d(1, 1, 1);
+  transform-origin: 50% 50% 0;
+  transition: transform 1s cubic-bezier(0.37, 0.23, 0.34, 0.99) 0s, opacity 0.22s ease-out 0s;
+  max-width: 100%;
+  overflow: hidden
+}
 .pokemon-card{
   display:flex;
   box-shadow: 4px 4px 4px rgba(0,0,0,0.25);

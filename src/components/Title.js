@@ -2,8 +2,8 @@ import React from 'react'
 
 function Title({img}){
     return(
-        <div className="text-center text-light" >
-        <img src={img} alt=""/>
+        <div className="text-center  text-light" >
+        <img src={img} className="title-flex" alt=""/>
         </div>
     )
 }

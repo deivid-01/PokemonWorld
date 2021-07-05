@@ -1,0 +1,15 @@
+footer{
+    font-family: inherit;
+  background-color: rgba(0,0,0,0.75);
+ 
+  color: white;
+  text-align: center;
+  font-size: 0.9rem;
+  align-items: center;
+  justify-content: center;
+  display:flex;
+  clear: both;
+  position: relative;
+  height: 100px;
+  margin-top: 110px;
+}
