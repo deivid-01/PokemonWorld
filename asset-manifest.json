@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/PokemonWorld/static/css/main.064c5de3.chunk.css",
+    "main.js": "/PokemonWorld/static/js/main.394afce3.chunk.js",
+    "main.js.map": "/PokemonWorld/static/js/main.394afce3.chunk.js.map",
+    "runtime-main.js": "/PokemonWorld/static/js/runtime-main.2282ca75.js",
+    "runtime-main.js.map": "/PokemonWorld/static/js/runtime-main.2282ca75.js.map",
+    "static/css/2.87575806.chunk.css": "/PokemonWorld/static/css/2.87575806.chunk.css",
+    "static/js/2.75e807fd.chunk.js": "/PokemonWorld/static/js/2.75e807fd.chunk.js",
+    "static/js/2.75e807fd.chunk.js.map": "/PokemonWorld/static/js/2.75e807fd.chunk.js.map",
+    "index.html": "/PokemonWorld/index.html",
+    "static/css/2.87575806.chunk.css.map": "/PokemonWorld/static/css/2.87575806.chunk.css.map",
+    "static/css/main.064c5de3.chunk.css.map": "/PokemonWorld/static/css/main.064c5de3.chunk.css.map",
+    "static/js/2.75e807fd.chunk.js.LICENSE.txt": "/PokemonWorld/static/js/2.75e807fd.chunk.js.LICENSE.txt",
+    "static/media/bg_generations.cf9f3830.jpg": "/PokemonWorld/static/media/bg_generations.cf9f3830.jpg",
+    "static/media/bg_locations.d1679fe3.png": "/PokemonWorld/static/media/bg_locations.d1679fe3.png",
+    "static/media/bg_pokemons2.f078e4e1.jpg": "/PokemonWorld/static/media/bg_pokemons2.f078e4e1.jpg",
+    "static/media/generations.35948d86.png": "/PokemonWorld/static/media/generations.35948d86.png",
+    "static/media/pokeball.774abbaf.png": "/PokemonWorld/static/media/pokeball.774abbaf.png",
+    "static/media/pokedex.9383ae43.png": "/PokemonWorld/static/media/pokedex.9383ae43.png",
+    "static/media/pokemonworld.cac6246f.png": "/PokemonWorld/static/media/pokemonworld.cac6246f.png",
+    "static/media/title_locations.b8070092.png": "/PokemonWorld/static/media/title_locations.b8070092.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2282ca75.js",
+    "static/css/2.87575806.chunk.css",
+    "static/js/2.75e807fd.chunk.js",
+    "static/css/main.064c5de3.chunk.css",
+    "static/js/main.394afce3.chunk.js"
+  ]
+}
