@@ -13,11 +13,12 @@ function NavBar() {
 
   const history = useHistory();
   const classes = useStyles();
-
-  const PATH_HOME='/home';
-  const PATH_POKEDEX='/pokedex';
-  const PATH_LOCATIONS='/locations';
-  const PATH_GENERATIONS='/generations';
+  
+  const BASE_NAME="/PokemonWorld"
+  const PATH_HOME=BASE_NAME+'/home';
+  const PATH_POKEDEX=BASE_NAME+'/pokedex';
+  const PATH_LOCATIONS=BASE_NAME+'/locations';
+  const PATH_GENERATIONS=BASE_NAME+'/generations';
 
   const onChangesTab = (page,e)=>{
      

@@ -8,13 +8,15 @@ import {BrowserRouter,Switch,Route,Redirect} from 'react-router-dom';
 import './App.css'
 
 function App() {
+
+  const BASEPATH='/PokemonWorld'
   return (
     <div>
   
     <BrowserRouter>
       <Switch>
-        <Redirect exact path="/" to="/home" />
-        <Route path="/home" render={ (props) => 
+        <Redirect exact path="/" to={BASEPATH+"/home"} />
+        <Route path={BASEPATH+"/home"}render={ (props) => 
               <div>
               <NavBar></NavBar>
                 <Home { ...props } />
@@ -23,7 +25,7 @@ function App() {
                 </div> 
               }
         />
-        <Route path="/generations" render={ (props) => 
+        <Route path={BASEPATH+"/generations"} render={ (props) => 
                 <div>
               <NavBar></NavBar>
                 <Generations { ...props } />
@@ -32,7 +34,7 @@ function App() {
               }
       
         />
-        <Route path="/pokedex" render={ (props) => 
+        <Route path={BASEPATH+"/pokedex"} render={ (props) => 
               <div>
               <NavBar></NavBar>
                 <Pokedex { ...props } /> 
@@ -41,7 +43,7 @@ function App() {
               }
       
         />
-                <Route path="/locations" render={ (props) => 
+                <Route path={BASEPATH+"/locations"} render={ (props) => 
                <div>
                <NavBar></NavBar>
                 <Locations { ...props } /> 
@@ -54,7 +56,7 @@ function App() {
     
         {/* Redirect unhandled routes */}
         <Route>
-          <Redirect to="/home" />
+          <Redirect to={BASEPATH+"/home"} />
         </Route>
       </Switch>
     </BrowserRouter>
