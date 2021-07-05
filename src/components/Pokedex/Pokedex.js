@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import Modal from '../Modal'
+import Modal from '../Modal/Modal'
 import PokemonCards from './PokemonCards'
 import Pagination from '../Pagination'
 import {getItemByURL,getItems,searchItem } from '../../services/api.services'

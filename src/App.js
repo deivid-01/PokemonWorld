@@ -1,5 +1,5 @@
 import Home from './components/Home/Home'
-import Generations from './components/Generations'
+import Generations from './components/Generations/Generations'
 import Locations from './components/Locations/Locations'
 import Pokedex from './components/Pokedex/Pokedex'
 import PokemonInfo from './components/Pokedex/PokemonInfo'
@@ -13,9 +13,9 @@ function App() {
       <Switch>
         <Redirect exact path="/" to="/home" />
         <Route path="/home" render={ (props) => 
-              <div className="App">
+              
                 <Home { ...props } />  
-              </div> }
+              }
         />
         <Route path="/generations" render={ (props) => 
                 <Generations { ...props } />  
@@ -23,16 +23,16 @@ function App() {
       
         />
         <Route path="/pokedex" render={ (props) => 
-                <div className="App">
+             
                 <Pokedex { ...props } /> 
-                </div> 
+             
               }
       
         />
                 <Route path="/locations" render={ (props) => 
-                <div className="App">
+               
                 <Locations { ...props } />  
-                </div>
+             
               }
       
         />

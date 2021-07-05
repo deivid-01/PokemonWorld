@@ -1,20 +1,20 @@
 import React, {useState, useEffect} from 'react'
 import Modal from '../Modal/Modal'
-import LocationCards from './Location.cards'
+import GenerationCards from './Generation.cards'
 import Pagination from '../Pagination'
 import {getItemByURL,getItems,searchItem } from '../../services/api.services'
 import Title from '../Title'
 import SearchBar from '../SearchBar'
-import img_title from '../../assets/locations.png'
+import img_title from '../../assets/generations.png'
 
-function Locations ()  {
+function Generations ()  {
     
     //Config
     const NUM_ITEMS=10
-    const MODULE='location'
+    const MODULE='generation'
     //Data
-    const [locations,setLocations] = useState([])
-    const [selected_location,setSelectedLocation]= useState(null)
+    const [generations,setGenerations] = useState([])
+    const [selected_generation,setSelectedGeneration]= useState(null)
     
     //Pages
     const [actualPage,setActualPage]= useState(0)
@@ -24,15 +24,15 @@ function Locations ()  {
     const [showModal, setShowModal] = useState(false);
     const [notFound,setNotFound] = useState(false);
 
-    const fetchLocation = async() => {
+    const fetchGeneration = async() => {
         try
         {
-            //Get locations data
+            //Get generations data
             const data = await getItems(MODULE,
                                         NUM_ITEMS, //Limit
                                         NUM_ITEMS*actualPage); //Offset
             console.log(data)
-            //Get specific data of each location
+            //Get specific data of each generation
             const promises = data.results.map( async (pok)=>{
                     return await getItemByURL(pok.url)
                 })
@@ -41,7 +41,7 @@ function Locations ()  {
             //Set Data
 
             setTotalPages( Math.ceil(data.count/NUM_ITEMS))
-            setLocations(results)
+            setGenerations(results)
             setNotFound(false);
         }
         catch(err)
@@ -51,15 +51,15 @@ function Locations ()  {
     }
 
 
-    const onSearch = async(location_name)=>{
+    const onSearch = async(generation_name)=>{
 
-        if(!location_name)
-            return fetchLocation();
+        if(!generation_name)
+            return fetchGeneration();
 
-        const res = await searchItem(MODULE,location_name)
+        const res = await searchItem(MODULE,generation_name)
         if(res)
         {
-            setLocations([res])
+            setGenerations([res])
             setNotFound(false)
         }
         else
@@ -73,14 +73,19 @@ function Locations ()  {
             setActualPage(actualPage-1)
     } 
     
-    const onNextPage = ()=>  setActualPage(actualPage+1)
+    const onNextPage = ()=> 
+    {
+        if (actualPage < (totalPages-1))
+            setActualPage(actualPage+1)
+    }
+        
     const handleCloseModal = () => setShowModal(false);
     const handleShowModal = () => setShowModal(true);
-    const onSelectLocationHandler = (location)=>  setSelectedLocation(location)     
+    const onSelectGenerationHandler = (generation)=>  setSelectedGeneration(generation)     
        
     
     useEffect(()=>{
-        fetchLocation()
+        fetchGeneration()
     },[actualPage])
 
     return (
@@ -93,10 +98,10 @@ function Locations ()  {
 
             {(!notFound)?
             <div >
-                <LocationCards
-                    locations={locations}
+                <GenerationCards
+                    generations={generations}
                     openModal={handleShowModal}
-                    setSelectedLocation={onSelectLocationHandler}
+                    setSelectedGeneration={onSelectGenerationHandler}
                     />
                     </div>
                 :
@@ -110,14 +115,14 @@ function Locations ()  {
                 onRightClick={onNextPage}
             />
             {
-                showModal && selected_location &&  
+                showModal && selected_generation &&  
                     <Modal 
                     module={MODULE}
-                    data={selected_location}
+                    data={selected_generation}
                     closeModal ={handleCloseModal}
                     />
                 }      
         </div>)
 }
 
-export default Locations;
+export default Generations;

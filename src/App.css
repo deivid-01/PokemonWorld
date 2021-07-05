@@ -114,3 +114,22 @@ body
   justify-content: center;
   cursor: pointer;
 }
+.card-info-noimage {
+  min-width: 275px;
+  position:absolute;
+  left:50%;
+  top:50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%)
+}
+.card-info-header{
+  text-align:center;
+}
+
+.card-info-subtitles{
+  font-size:14;
+}
+
+.active-pointer{
+  cursor: pointer
+}
