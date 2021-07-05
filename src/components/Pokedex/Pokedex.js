@@ -7,6 +7,8 @@ import Title from '../Title'
 import SearchBar from '../SearchBar'
 import img_title from '../../assets/pokedex.png'
 
+
+
 function Pokedex(){
 
     //Config
@@ -73,7 +75,9 @@ function Pokedex(){
 
         }
     }
-    
+    const updatePage= (e,page_)=>{
+        setActualPage(page_-1)
+    }
     const handleCloseModal = () => setShow(false);
     const handleShowModal = () => setShow(true);
 
@@ -98,13 +102,13 @@ function Pokedex(){
                 :
                 <p>Pokemon Not Found</p>   
             }
-              <br></br>
+              
             <Pagination
-                page ={actualPage}
                 totalPages={totalPages}
-                onLeftClick={onPreviousPage}
-                onRightClick={onNextPage}
+                updatePage={updatePage}   
             />
+            <br></br>
+            <br></br>
             {/*Modal with pokemon info*/ }
             {
                 show && selected_pokemon &&  

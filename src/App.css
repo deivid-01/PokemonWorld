@@ -133,3 +133,11 @@ body
 .active-pointer{
   cursor: pointer
 }
+.center-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fixed-list{
+  display:flex
+}

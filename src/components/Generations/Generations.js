@@ -82,7 +82,9 @@ function Generations ()  {
     const handleCloseModal = () => setShowModal(false);
     const handleShowModal = () => setShowModal(true);
     const onSelectGenerationHandler = (generation)=>  setSelectedGeneration(generation)     
+    const updatePage= (e,page_)=>  setActualPage(page_-1)
        
+    
     
     useEffect(()=>{
         fetchGeneration()
@@ -108,12 +110,12 @@ function Generations ()  {
                 <p>Pokemon Not Found</p>   
             }
               <br></br>
-            <Pagination
-                page ={actualPage}
+              <Pagination
                 totalPages={totalPages}
-                onLeftClick={onPreviousPage}
-                onRightClick={onNextPage}
+                updatePage={updatePage}   
             />
+              <br></br>
+              <br></br>
             {
                 showModal && selected_generation &&  
                     <Modal 

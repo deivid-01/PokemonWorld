@@ -50,6 +50,9 @@ function Locations ()  {
         }
     }
 
+    const updatePage= (e,page_)=>{
+        setActualPage(page_-1)
+    }
 
     const onSearch = async(location_name)=>{
 
@@ -102,13 +105,13 @@ function Locations ()  {
                 :
                 <p>Pokemon Not Found</p>   
             }
-              <br></br>
-            <Pagination
-                page ={actualPage}
+            
+              <Pagination
                 totalPages={totalPages}
-                onLeftClick={onPreviousPage}
-                onRightClick={onNextPage}
+                updatePage={updatePage}   
             />
+              <br></br>
+              <br></br>
             {
                 showModal && selected_location &&  
                     <Modal 
