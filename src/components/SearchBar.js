@@ -21,7 +21,8 @@ function SearchBar({module,onSearch}){
         {
           // Enter pressed
           e.preventDefault();
-          onSearch(search.toLowerCase())
+          
+          onSearch(search.replace(' ','-').toLowerCase())
         }
     }
 

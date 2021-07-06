@@ -14,7 +14,7 @@ function GenerationCard({generation,openModal,setSelectedGeneration}) {
     }
 
     return ( 
-      <div  className="pokemon-card active-pointer" onClick={onClickHandler}>
+      <div  className="pokemon-card active-pointer animate__animated animate__fadeInUp" onClick={onClickHandler}>
 
         <div className="card-body">
 

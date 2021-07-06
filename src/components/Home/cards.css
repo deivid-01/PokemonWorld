@@ -1,6 +1,10 @@
 .card:hover {
-    box-shadow: 10px 5px 10px 5px rgba(255, 255, 255,0.8) !important;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0,0.4) !important;
+    
     transition: all 0.2s linear;
+}
+.card-bg-color{
+    background-color: rgba(0,0,0,0.08);
 }
 .card-img-top{
     transition: all 0.2s ease-in-out;

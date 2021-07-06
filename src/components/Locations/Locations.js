@@ -7,6 +7,10 @@ import Title from '../Title'
 import SearchBar from '../SearchBar'
 import img_title from '../../assets/title_locations.png'
 
+import Loading from '../Loading/Loading'
+import Message from '../Message/Message'
+
+
 function Locations ()  {
     
     //Config
@@ -21,17 +25,19 @@ function Locations ()  {
     const [totalPages,setTotalPages]= useState()
     
     //Hide/Show Components
+    const [loadingData,setLoadingData] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [notFound,setNotFound] = useState(false);
 
     const fetchLocation = async() => {
         try
         {
+            setLoadingData(true);
             //Get locations data
             const data = await getItems(MODULE,
                                         NUM_ITEMS, //Limit
                                         NUM_ITEMS*actualPage); //Offset
-            console.log(data)
+            setLoadingData(false);
             //Get specific data of each location
             const promises = data.results.map( async (pok)=>{
                     return await getItemByURL(pok.url)
@@ -58,8 +64,9 @@ function Locations ()  {
 
         if(!location_name)
             return fetchLocation();
-
+        setLoadingData(true);
         const res = await searchItem(MODULE,location_name)
+        setLoadingData(false);
         if(res)
         {
             setLocations([res])
@@ -94,16 +101,20 @@ function Locations ()  {
              <SearchBar  module={MODULE} onSearch={onSearch} />
               <br></br>
 
-            {(!notFound)?
-            <div >
+            { (loadingData)?
+                <Loading>
+                </Loading>
+                :(!notFound)?
                 <LocationCards
                     locations={locations}
                     openModal={handleShowModal}
                     setSelectedLocation={onSelectLocationHandler}
                     />
-                    </div>
+                 
                 :
-                <p>Pokemon Not Found</p>   
+                <Message
+                    msg='Location Not Found'
+                />
             }
             
               <Pagination

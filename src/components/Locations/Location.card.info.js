@@ -9,9 +9,9 @@ function LocationInfo({location}) {
   //English name
   
   //Generation
-  const {generation} = game_indices[0]
+  const {generation} = (game_indices.length>0)?game_indices[0]:{name:"No generation"}
 
-
+  
 
   return (
    
@@ -31,7 +31,8 @@ function LocationInfo({location}) {
         label = {firstToUpper(region.name)} //Region name
         color={"primary"} 
         />
-
+  { areas.length>0 && (
+    <div>
       <Typography className="card-info-subtitles"color="textSecondary">
         Areas:
       </Typography>
@@ -44,14 +45,20 @@ function LocationInfo({location}) {
           )
         })
       }
-
+      </div>)
+      }
+    {   game_indices.length>0 && (
+      <div>
         <Typography className="card-info-subtitles" color="textSecondary">
         Generation:
       </Typography>
-
-      <Chip icon={<Timeline/>}
-        label = {removeAndUpper('generation-',generation.name)} //Generation
-        color={"default"} />
+      
+          <Chip icon={<Timeline/>}
+          label = {removeAndUpper('generation-',game_indices[0].generation.name)} //Generation
+          color={"default"} />
+        </div>)
+      }
+    
        
 
         

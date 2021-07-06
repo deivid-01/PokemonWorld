@@ -6,8 +6,8 @@ import {getItemByURL,getItems,searchItem } from '../../services/api.services'
 import Title from '../Title'
 import SearchBar from '../SearchBar'
 import img_title from '../../assets/pokedex.png'
-
-
+import Loading from '../Loading/Loading'
+import Message from '../Message/Message'
 
 function Pokedex(){
 
@@ -21,15 +21,21 @@ function Pokedex(){
     const [selected_pokemon,setSelectedPokemon]= useState(null)
     const [actualPage,setActualPage]= useState(0)
     const [totalPages,setTotalPages]= useState()
-    
+   
+    const [loadingData,setLoadingData] = useState(false);
     const [notFound,setNotFound] = useState(false);
 
     const onSearch = async(pokemon_name)=>{
 
         if(!pokemon_name)
             return fetchPokemon();
-
+        
+        setLoadingData(true);
+        
         const res = await searchItem(MODULE,pokemon_name)
+        
+        setLoadingData(false);
+
         if(res)
         {
             setPokemons([res])
@@ -55,8 +61,11 @@ function Pokedex(){
     const fetchPokemon = async() => {
         try
         {
+            setLoadingData(true);
             //Get pokemons data
             const data = await getItems(MODULE,NUM_ITEMS, NUM_ITEMS*actualPage);
+            
+            
             //Get specific data of each pokemon
             const promises = data.results.map( async (pok)=>{
                 return await getItemByURL(pok.url)
@@ -65,7 +74,7 @@ function Pokedex(){
             const results = await Promise.all(promises)
             //Set Data
             
-      
+            setLoadingData(false);
             setTotalPages( Math.ceil(data.count/NUM_ITEMS))
             setPokemons(results)
             setNotFound(false);
@@ -93,16 +102,22 @@ function Pokedex(){
             <SearchBar  module={MODULE} onSearch={onSearch} />
           
             <br></br>
-            {(!notFound)?
+            {
+                (loadingData)?
+                <Loading>
+                </Loading>
+                :(!notFound)?
                 <PokemonCards
-                    pokemons={pokemons}
-                    openModal={handleShowModal}
-                    setSelectedPokemon={onSelectPokemonHandler}
-                    />
+                pokemons={pokemons}
+                openModal={handleShowModal}
+                setSelectedPokemon={onSelectPokemonHandler}
+                />
                 :
-                <p>Pokemon Not Found</p>   
-            }
-              
+                <Message
+                    msg='Pokemon Not Found'
+                />
+             
+            }     
             <Pagination
                 totalPages={totalPages}
                 updatePage={updatePage}   

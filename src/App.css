@@ -15,14 +15,10 @@ body
   text-align: right;
 }
 
-
-
 .c-searchbar{
   display:flex;
   flex-direction:row;
-  align-items:center;
-  
-
+  align-items:center;  
 }
 .c-card{
   width:'100%';
@@ -39,18 +35,7 @@ body
   max-width: 100%;
   overflow: hidden
 }
-.pokemon-card{
-  display:flex;
-  box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
-  border-radius: 3px;
-  background-color: rgba(0,0,0,0.08);
-}
-.pokemon-img{
-  width: 100px;
-  height: 100px;
 
- 
-}
 .pokedex-grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);

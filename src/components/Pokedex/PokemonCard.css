@@ -1,0 +1,16 @@
+.pokemon-card{
+    display:flex;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
+    border-radius: 3px;
+    background: rgba(0,0,0,0.1);
+    
+  }
+  .pokemon-card:hover{
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.4) !important;
+  }
+  .pokemon-img{
+    width: 100px;
+    height: 100px;
+  
+   
+  }

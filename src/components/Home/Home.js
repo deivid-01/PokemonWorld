@@ -7,6 +7,7 @@ import bg_generations from '../../assets/bg_generations.jpg'
 import bg_pokemon from '../../assets/bg_pokemons2.jpg'
 import bg_locations from '../../assets/bg_locations.png'
 
+
 function Home ()
 {
     const [cardsData,setCardsData] = useState([
@@ -35,7 +36,7 @@ function Home ()
     
     return (<div>
         <br></br>
-        <div className="container center-item  " >
+        <div className="container center-item animate__animated animate__fadeInDown " >
         <img  src={img_title} className="title-flex" alt=""/>
         </div>
         <br></br>

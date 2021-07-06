@@ -2,7 +2,7 @@
   "name": "pokemon-world",
   "version": "0.1.0",
   "private": true,
-  "homepage":"http://deivid-01.github.io/PokemonWorld",
+  "homepage": "http://deivid-01.github.io/PokemonWorld",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.8.3",
     "animate.css": "^4.1.1",
     "bootstrap": "^4.6.0",
+    "framer-motion": "^4.1.17",
     "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -23,8 +24,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

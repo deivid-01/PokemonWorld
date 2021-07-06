@@ -18,7 +18,7 @@ function ScrollableList({data,listName})
                   ))}
             </List>
               :
-              <p1>No {listName}</p1>
+              <p>No {listName}</p>
         }
         </div>)
 }

@@ -1,16 +1,8 @@
 import React ,{useEffect,useState} from 'react'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
 import GradeIcon from '@material-ui/icons/Grade';
 import Chip from '@material-ui/core/Chip';
-
+import './PokemonCard.css'
 
 const useStyles = makeStyles((theme)=>({
   root: {
@@ -31,7 +23,7 @@ const useStyles = makeStyles((theme)=>({
 
 function PokemonCard({pokemon,openModal,setSelectedPokemon}) {
  
-
+  
  
     const classes = useStyles();
 
@@ -55,8 +47,15 @@ function PokemonCard({pokemon,openModal,setSelectedPokemon}) {
       setSelectedPokemon(pokemon);
     }
 
+    const handleOnMouseOver =(e)=>{
+      console.log("onMouseOver");
+
+    }
+   
     return ( 
-      <div  style={{cursor: 'pointer'}} className="pokemon-card " onClick={onClickHandler}>
+      
+      <div  style={{cursor: 'pointer'}} onMouseEnter={handleOnMouseOver} className={`pokemon-card animate__animated animate__fadeInUp `} onClick={onClickHandler}>
+      
         <div className="pokemon-img-container">
           <img src ={pokemon.sprites.front_default}
               alt = {pokemon.name}

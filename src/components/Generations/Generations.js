@@ -7,6 +7,10 @@ import Title from '../Title'
 import SearchBar from '../SearchBar'
 import img_title from '../../assets/generations.png'
 
+import Loading from '../Loading/Loading'
+import Message from '../Message/Message'
+
+
 function Generations ()  {
     
     //Config
@@ -21,6 +25,7 @@ function Generations ()  {
     const [totalPages,setTotalPages]= useState()
     
     //Hide/Show Components
+    const [loadingData,setLoadingData] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [notFound,setNotFound] = useState(false);
 
@@ -28,10 +33,11 @@ function Generations ()  {
         try
         {
             //Get generations data
+            setLoadingData(true);
             const data = await getItems(MODULE,
                                         NUM_ITEMS, //Limit
                                         NUM_ITEMS*actualPage); //Offset
-            console.log(data)
+            
             //Get specific data of each generation
             const promises = data.results.map( async (pok)=>{
                     return await getItemByURL(pok.url)
@@ -39,7 +45,7 @@ function Generations ()  {
         //Await until get all promises
             const results = await Promise.all(promises)
             //Set Data
-
+            setLoadingData(false);
             setTotalPages( Math.ceil(data.count/NUM_ITEMS))
             setGenerations(results)
             setNotFound(false);
@@ -55,8 +61,9 @@ function Generations ()  {
 
         if(!generation_name)
             return fetchGeneration();
-
+        setLoadingData(true);
         const res = await searchItem(MODULE,generation_name)
+        setLoadingData(false);
         if(res)
         {
             setGenerations([res])
@@ -98,16 +105,19 @@ function Generations ()  {
              <SearchBar  module={MODULE} onSearch={onSearch} />
               <br></br>
 
-            {(!notFound)?
-            <div >
+            {(loadingData)?
+                <Loading>
+                </Loading>
+                :(!notFound)?
                 <GenerationCards
                     generations={generations}
                     openModal={handleShowModal}
                     setSelectedGeneration={onSelectGenerationHandler}
                     />
-                    </div>
                 :
-                <p>Pokemon Not Found</p>   
+                <Message
+                    msg='Generation Not Found'
+                />
             }
               <br></br>
               <Pagination

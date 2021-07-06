@@ -4,8 +4,7 @@ import PlaceIcon from '@material-ui/icons/Place';
 import {firstToUpper, splitAndUpper} from '../../utils/stringtools'
 
 function LocationCard({location,openModal,setSelectedLocation}) {
- 
-  //Data
+//Data
   const {id,name,region} = location  
   
   const onClickHandler = ()=>{
@@ -14,7 +13,7 @@ function LocationCard({location,openModal,setSelectedLocation}) {
     }
 
     return ( 
-      <div  className="pokemon-card active-pointer" onClick={onClickHandler}>
+      <div  className="pokemon-card active-pointer animate__animated animate__fadeInUp" onClick={onClickHandler}>
 
         <div className="card-body">
 
