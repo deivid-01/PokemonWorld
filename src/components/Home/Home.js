@@ -16,21 +16,21 @@ function Home ()
             title:'Generations',
             image:bg_generations,
             description:'Watch and search Pokemon Generations .In each generation, a new set of Pokémon, Moves, Abilities and Types.',
-            url:'/generations'
+            url:'/PokemonWorld/generations'
         },
         {
             id:2,
             title:'Pokedex',
             image:bg_pokemon,
             description:'Watch and search detailed information about the creatures that inhabit the world of the Pokémon games.',
-            url:'/pokedex'
+            url:'/PokemonWorld/pokedex'
         },
         {
             id:3,
             title:'Locations',
             image:bg_locations,
             description:'Check out the Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.',
-            url:'/locations'
+            url:'/PokemonWorld/locations'
         },
     ]) 
     
