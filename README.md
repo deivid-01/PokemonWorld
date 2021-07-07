@@ -2,6 +2,7 @@
     
 Pokemon World , is a web page with three main components: Generations, Locations and Pokemons. Where each component reads and displays detailed information it takes from the Pokémon API, [PokeAPI](https://pokeapi.co/)
 
+![pokemonworld](https://user-images.githubusercontent.com/50857082/124698204-f3726100-dead-11eb-80bb-9069e566f95b.gif)
 
 
 ## Installation
