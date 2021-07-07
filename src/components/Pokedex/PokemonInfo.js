@@ -1,26 +1,13 @@
 import React, {useState,useEffect} from 'react'
 
 import {
-    Container,
     Card,
-    List,
     Name,
-    Head,
-    Row,
-    Col,
     SubCard,
     Id,
     Info,
-    SubTitle,
-    Evolutions,
-    Evolution,
-    Colors,
-    Color,
-    Select,
-    Option,
     BoxTypes,
     BasicInfo,
-    ButtonTop,
     Stat,
     StatLabel,
     StatBar,
@@ -40,16 +27,18 @@ const pad = (num, size) => {
                 key={`pokemon-${pokemon.name}`}
                 id={`pokemon-${pokemon.name}`}
               >
-                <img src={pokemon.sprites.front_default} alt="daa"
+                <img  src={pokemon.sprites.front_default} alt={pokemon.name}
                         style={{
-                            'width': '350px',
+                            'width': '200px',
                             'margin': '0 auto',
                             'z-index':'2',
-                            'margin-top': '-70px'                    
+                            'margin-top': '0px'                    
                         }}
                      ></img>
        
                 <SubCard className={`bg-dark`}>
+                  <br></br>
+                  <br></br>
                   <Id>#{pad(pokemon.id, 3)}</Id>
                   <BoxTypes>
                     {pokemon.types.map(item => (

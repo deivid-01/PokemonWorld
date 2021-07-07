@@ -4,7 +4,14 @@ export const removeAndUpper = (str_remove,str)=> {
     return str.toUpperCase();
   }
 //Set the fisrt character to upperCase
-export   const firstToUpper = (str) => str[0].toUpperCase()+str.substring(1,str.length)
+export   const firstToUpper = (str) =>
+{
+  if(str)
+  {
+    return str[0].toUpperCase()+str.substring(1,str.length)
+  }
+  return ""
+} 
 
 export const splitAndUpper=(str,split_symbol=" ")=>{
   var str = str.split(split_symbol);

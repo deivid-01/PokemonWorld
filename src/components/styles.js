@@ -2,14 +2,13 @@ import styled from 'styled-components';
 
 
 export const Card = styled.div`
-  width: 500px;
+  width: 300px;
   height: 600px;
   display: grid;
   flex-direction: column;
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 `;
 
