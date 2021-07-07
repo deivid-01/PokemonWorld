@@ -1,22 +1,22 @@
 # Pokemon World
+    
+    Pokemon World , is a web page with three main components: Generations, Locations and Pokemons. Where each component reads and displays detailed information it takes from the Pokémon API, [PokeAPI](https://pokeapi.co/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    
 
 ## Installation
 
+  1. Clone repository.
+### `git clone https://github.com/deivid-01/PokemonWorld`
+
+  2. Install npm packages.
 ### `npm install`
 
-Installs npm packages.
-
-In the project directory, you can run:
-
+3. Run proyect
 ### `npm run start`
+4. Open browser in [http://localhost:3000](http://localhost:3000)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-### `npm run deploy`
-
+## Deploy
 Deploys the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
+for the best performance.
+### `npm run deploy`
